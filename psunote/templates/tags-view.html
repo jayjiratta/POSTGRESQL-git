@@ -2,19 +2,16 @@
 {% block title %}Tag: {{ tag_name }}{% endblock %}
 {% block body %}
 <ul class="nav justify-content-center" style="padding-top: 1em;">
-  <li class="nav-item">
-    <a class="btn btn-primary" href="{{ url_for('index') }}">Home</a>
+  <li class="nav-item mx-1" style="width: 120px;">
+    <a class="btn btn-secondary btn-sm w-100" href="{{ url_for('tags_edit', tag_id=tag.id) }}">Edit Tag</a>
   </li>
-  <li class="nav-item mx-2">
-    <div class="btn btn-info">{{ tag_name }}</div>
+  <li class="nav-item mx-1" style="width: 120px;">
+    <a class="btn btn-primary w-100" href="{{ url_for('index') }}">Home</a>
   </li>
-  <li class="nav-item">
-    <a class="btn btn-secondary btn-sm" href="{{ url_for('tags_edit', tag_id=tag.id) }}">แก้ไข Tag</a>
-  </li>
-  <li class="nav-item mx-1">
-    <form style="display: inline;" method="POST" action="{{ url_for('tags_delete', tag_id=tag.id) }}"
+  <li class="nav-item mx-1" style="width: 120px;">
+    <form style="display: inline; width: 100%;" method="POST" action="{{ url_for('tags_delete', tag_id=tag.id) }}"
       onsubmit="return confirm('Are you sure you want to remove this tag? All notes that use this tag will no longer have this tag.')">
-      <button type="submit" class="btn btn-danger btn-sm">Delete Tag</button>
+      <button type="submit" class="btn btn-danger btn-sm w-100">Delete Tag</button>
     </form>
   </li>
 </ul>
